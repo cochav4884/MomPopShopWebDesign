@@ -67,6 +67,99 @@ img,
   margin-right: 10px;
 }
 
+/* HERO SECTION */
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-left img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px #000000;
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.subheader {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #400669;
+}
+
+.hero-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px #000000;
+  max-width: 350px;
+}
+
+.hero-box h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-box p {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+/* Content Below Hero */
+.hero-below {
+  margin: 2rem auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-right {
+    justify-content: center;
+  }
+
+  .hero-box {
+    max-width: 100%;
+  }
+}
+
+
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-right {
+    text-align: center;
+  }
+}
+
+/* ===================================== */
+/* END HERO SECTION */
+/* ===================================== */
+
 /* Cards (Service Cards) */
 .card {
   background-color: #ffffff;
@@ -111,7 +204,6 @@ img,
   text-decoration: none;
   color: inherit;
 }
-
 
 /* Buttons */
 .custom-button {

@@ -1,108 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mom & Pop Shop Web Design</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mom & Pop Shop Web Design</title>
 
-<link rel="icon" type="image/png" href="/public/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
-<link rel="shortcut icon" href="/public/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="MomPopShopWebDesign.com" />
-<link rel="manifest" href="/public/site.webmanifest" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/public/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+    <link rel="shortcut icon" href="/public/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/public/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="MomPopShopWebDesign.com" />
+    <link rel="manifest" href="/public/site.webmanifest" />
 
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles/index.css" />
-  <link rel="stylesheet" href="styles/navbar.css" />
-  <link rel="stylesheet" href="styles/footer.css" />
-</head>
-<body>
-  <!-- Navbar will be loaded here -->
-  <div id="navbar-container"></div>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+  </head>
+  <body>
+    <!-- Navbar will be loaded here -->
+    <div id="navbar-container"></div>
 
-  <!-- Main Content -->
-  <div class="container-fluid my-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-md-10 col-sm-12 text-center">
-        <header>
-          <h1 class="page-header mb-3"> 
-            <img
-            id="logo"
-            src="images/logo_small.jpeg"
-            alt="Mom & Pop Shop Logo"
-            class="logoImg mb-3"
-          />
-            <b><p>Personalized Websites Designed Just For You!</p></b>
-          </h1>
-         
-         
-        </header>
+    <!-- Main Content -->
+    <div class="container-fluid my-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12 text-center">
+          <header>
+            <h1 class="page-header mb-3">
+              <img
+                id="logo"
+                src="images/logo_small.jpeg"
+                alt="Mom & Pop Shop Logo"
+                class="logoImg mb-3"
+              />
+              <b><p>Personalized Websites Designed Just For You!</p></b>
+            </h1>
+          </header>
 
-        <p class="subheader">
-          Helping local businesses build simple, beautiful websites that grow
-          their customer base.
-        </p>
-        <p class="subheader">
-          Whether you need a brand new website or a refresh, I specialize in
-          creating easy-to-manage, responsive sites using HTML, CSS, and
-          JavaScript. I can use backend code for form submission success!
-        </p>
-        <p>
-          <a href="services.html" class="custom-button">
-            View My Services
-          </a>
-        </p>
-      </div>
+<!-- Hero Section -->
+<div class="hero">
+  <div class="hero-left">
+    <img src="images/corinne_bw.jpg" alt="photo of Corinne" />
+  </div>
+  <div class="hero-right">
+    <div class="hero-box">
+      <h1>Founder & Software Developer Corinne Padilla</h1>
+      <p class="subheader">
+    Helping local businesses build simple, beautiful websites that grow
+    their customer base.
+  </p>
+      <button type="button" class="custom-button">Author Bio</button>
     </div>
   </div>
+</div>
 
-  <!-- Modal HTML -->
-  <div
-    class="modal fade"
-    id="logoModal"
-    tabindex="-1"
-    aria-labelledby="logoModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="logoModalLabel">Mom & Pop Shop Logo</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <img src="favicon.ico" alt="Mom & Pop Shop Logo" class="logoImg" />
+<!-- Content Below Hero -->
+<div class="hero-below">
+ 
+  <p class="subheader">
+    Whether you need a brand new website or a refresh, I specialize in
+    creating easy-to-manage, responsive sites using HTML, CSS, and
+    JavaScript. I can use backend code for form submission success!
+  </p>
+  <p>
+    <a href="services.html" class="custom-button"> View My Services </a>
+  </p>
+</div>
+
+
+         
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Footer will be loaded here -->
-  <div id="footer-container"></div>
+    <!-- Modal HTML -->
+    <div
+      class="modal fade"
+      id="logoModal"
+      tabindex="-1"
+      aria-labelledby="logoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoModalLabel">Mom & Pop Shop Logo</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <img src="favicon.ico" alt="Mom & Pop Shop Logo" class="logoImg" />
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Custom JS -->
-  <script>
-    // Logo modal
-    const logo = document.getElementById('logo');
-    const logoModal = new bootstrap.Modal(document.getElementById('logoModal'));
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
 
-    logo.addEventListener('click', () => {
-      logoModal.show();
-    });
-  </script>
+    <!-- Custom JS -->
+    <script>
+      // Logo modal
+      const logo = document.getElementById("logo");
+      const logoModal = new bootstrap.Modal(
+        document.getElementById("logoModal")
+      );
 
-  <!-- Include navbar and footer JS files -->
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
-</body>
+      logo.addEventListener("click", () => {
+        logoModal.show();
+      });
+    </script>
+
+    <!-- Include navbar and footer JS files -->
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+  </body>
 </html>
