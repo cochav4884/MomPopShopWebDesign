@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet the Founder — Corinne A. Padilla</title>
+
+<link rel="icon" type="image/png" href="/public/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+<link rel="shortcut icon" href="/public/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MomPopShopWebDesign.com" />
+<link rel="manifest" href="/public/site.webmanifest" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/author.css" />
+  <link rel="stylesheet" href="styles/navbar.css" />
+  <link rel="stylesheet" href="styles/footer.css" />
+
+  <!-- jsPDF and html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+ <!-- Navbar will be loaded here -->
+  <div id="navbar-container"></div>
+
+  <div class="container-fluid">
+    <div class="container">
+      <!-- Action Buttons -->
+      <div class="button-container">
+        <button class="custom-button" onclick="window.print()" aria-label="Print biography page">
+          🖨️ Print
+        </button>
+        <button class="custom-button" onclick="generatePDF()" aria-label="Download biography as PDF">
+          📄 Download PDF
+        </button>
+      </div>
+
+      <header>
+        <h1 class="page-header">Meet the Founder — Corinne A. Padilla</h1>
+      </header>
+
+      <div id="bio-content" class="row align-items-start bio-container">
+        <div class="col-md-5 mb-4 text-center">
+          <img src="/images/corinne_bw.jpg" alt="Portrait of Corinne Padilla" class="founder-img" />
+        </div>
+
+        <div class="col-md-7">
+          <article>
+            <!-- Childhood Section -->
+            <section class="bio-section">
+              <h2>Childhood</h2>
+              <p>Born to Manuel Padilla and Cynthia Peters on March 24, 1979, in Apple Valley, California, I grew up poor and fully aware...</p>
+              <ol>
+                <li>Don’t steal</li>
+                <li>Don’t cheat</li>
+                <li>Don’t lie</li>
+                <li>Don’t hit</li>
+                <li>Don’t call me dumb</li>
+              </ol>
+              <p>I learned that sometimes you have to accept what is and make the best of it...</p>
+            </section>
+
+            <!-- Education and Career -->
+            <section class="bio-section">
+              <h2>Education and Career</h2>
+              <p>The first in my family to graduate from college...</p>
+            </section>
+
+            <!-- Later Education & Volunteering -->
+            <section class="bio-section">
+              <h2>Later Education & Volunteering</h2>
+              <p>After returning home from Idaho, I decided to go back to school...</p>
+            </section>
+
+            <!-- Challenges & Resilience -->
+            <section class="bio-section">
+              <h2>Challenges & Resilience</h2>
+              <p>I attempted college again in 2020 and 2021, but had to take a leave of absence...</p>
+            </section>
+
+            <!-- Bitwise Coding Journey -->
+            <section class="bio-section">
+              <h2>Bitwise Coding Journey</h2>
+              <p>On February 19, 2022, an employee from Bitwise Industries told me about their Workforce Training classes...</p>
+            </section>
+
+            <!-- My Future -->
+            <section class="bio-section">
+              <h2>My Future</h2>
+              <p>I’ve built this Business Portfolio Website to showcase my skills to potential clients and employers...</p>
+            </section>
+
+            <p class="text-center fs-4 mt-4">* Last Update August 2, 2025 *</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Footer will be loaded here -->
+  <div id="footer-container"></div>
+
+ <!-- Include navbar and footer JS files -->
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+
+  <!-- Generate PDF Script -->
+  <script>
+    function generatePDF() {
+      const input = document.getElementById('bio-content');
+      html2canvas(input, { scale: 2 }).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jspdf.jsPDF({ orientation: 'portrait', unit: 'pt', format: 'a4' });
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save('Corinne_Padilla_Biography.pdf');
+      });
+    }
+  </script>
+</body>
+</html>

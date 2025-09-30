@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me</title>
+
+<link rel="icon" type="image/png" href="/public/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+<link rel="shortcut icon" href="/public/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MomPopShopWebDesign.com" />
+<link rel="manifest" href="/public/site.webmanifest" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/contact.css" />
+  <link rel="stylesheet" href="styles/navbar.css" />
+  <link rel="stylesheet" href="styles/footer.css" />
+</head>
+<body>
+ <!-- Navbar will be loaded here -->
+  <div id="navbar-container"></div>
+
+  <div class="container-fluid">
+    <div class="page">
+      <header>
+        <h1 class="page-header">Contact Me</h1>
+      </header>
+      <h2 class="section">
+        * I would love to hear from you! Please fill out the form below. *
+      </h2>
+
+      <section class="container">
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <label for="subject" class="form-label">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Select a Subject</option>
+            <option value="general">General Question</option>
+            <option value="talent">Suggestion</option>
+            <option value="comment">Comment</option>
+            <option value="technical">Technical Issue</option>
+            <option value="donotsell">Do Not Sell</option>
+          </select>
+          <textarea name="message" placeholder="What would you like to ask, suggest, or share?" required></textarea>
+
+          <div class="radio-container">
+            <p class="radio-label">Please select your data processing preference:</p>
+
+            <label class="radio-option">
+              <input type="radio" name="consentChoice" value="consent" required />
+              <span>I consent to the processing of my personal data as described in the
+                <a href="privacypolicy.html" class="privacy-inline-link">Privacy Policy</a>.</span>
+            </label>
+
+            <label class="radio-option">
+              <input type="radio" name="consentChoice" value="no_consent" />
+              <span>I do not consent to the processing of my personal data as described in the
+                <a href="privacypolicy.html" class="privacy-inline-link">Privacy Policy</a>.</span>
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label class="checkbox-label">
+              <input type="checkbox" name="doNotSell" />
+              &nbsp;I am a California resident and I wish to opt out of the sale or sharing of my personal information.
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <label class="checkbox-label">
+              <input type="checkbox" name="acceptedTermsAndPrivacy" required />
+              &nbsp;I agree to the 
+              <a href="termsofuse.html" class="privacy-inline-link">Terms of Use</a> and
+              <a href="privacypolicy.html" class="privacy-inline-link">Privacy Policy</a>.
+            </label>
+          </div>
+
+          <button class="custom-button" type="submit">Send</button>
+        </form>
+
+        <p id="statusMessage" class="status-message"></p>
+      </section>
+    </div>
+  </div>
+
+ <!-- Footer will be loaded here -->
+  <div id="footer-container"></div>
+
+   <!-- Include navbar and footer JS files -->
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+
+  <script>
+    const backendUrl = "YOUR_BACKEND_URL"; // Replace with your actual backend URL
+
+    const form = document.getElementById('contactForm');
+    const statusMessage = document.getElementById('statusMessage');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const payload = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+        doNotSell: formData.get('doNotSell') === "on",
+        consentChoice: formData.get('consentChoice'),
+        acceptedTermsAndPrivacy: formData.get('acceptedTermsAndPrivacy') === "on"
+      };
+
+      // Basic validation
+      if (!payload.subject) {
+        statusMessage.textContent = "Please select a subject for your message.";
+        statusMessage.className = "status-message status-error";
+        return;
+      }
+
+      if (!payload.consentChoice) {
+        statusMessage.textContent = "Please indicate your consent preference.";
+        statusMessage.className = "status-message status-error";
+        return;
+      }
+
+      if (!payload.acceptedTermsAndPrivacy) {
+        statusMessage.textContent = "Please accept the terms and privacy policy to proceed.";
+        statusMessage.className = "status-message status-error";
+        return;
+      }
+
+      try {
+        const response = await fetch(`${backendUrl}/send`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          statusMessage.textContent = "Message sent successfully!";
+          statusMessage.className = "status-message status-success";
+          form.reset();
+        } else if (response.status === 500) {
+          statusMessage.textContent = "Server error occurred. Try clearing your browser cache and refresh the page, then try again.";
+          statusMessage.className = "status-message status-error";
+        } else {
+          statusMessage.textContent = data.message || "Failed to send message. Please try again.";
+          statusMessage.className = "status-message status-error";
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        statusMessage.textContent = "An unexpected error occurred. Try clearing your browser cache and refresh the page, then try again.";
+        statusMessage.className = "status-message status-error";
+      }
+    });
+  </script>
+</body>
+</html>

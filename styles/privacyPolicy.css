@@ -1,0 +1,110 @@
+/* Main container */
+.main_container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Headers */
+.page-header {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.section {
+  font-size: 1.8em;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.section-title {
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.subsection-title {
+  font-size: 1.2em;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Text */
+.text, p {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Lists */
+ul.container {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+ul.container li {
+  margin-bottom: 10px;
+}
+
+/* Buttons for scrolling */
+.btn-link {
+  background: none;
+  border: none;
+  color: #007BFF;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: 1em;
+}
+
+.btn-link:hover {
+  color: #0056b3;
+}
+
+.btn-link2 {
+  color: #007BFF;
+  text-decoration: underline;
+}
+
+.btn-link2:hover {
+  color: #0056b3;
+}
+
+/* Containers */
+.container, .container-fluid {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Horizontal rule */
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-header {
+    font-size: 2em;
+  }
+
+  .section {
+    font-size: 1.5em;
+  }
+
+  .section-title {
+    font-size: 1.3em;
+  }
+
+  .subsection-title {
+    font-size: 1.1em;
+  }
+}

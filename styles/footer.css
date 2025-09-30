@@ -1,0 +1,68 @@
+/* Footer Base */
+footer {
+  background-color: #400669; /* Primary purple */
+  color: #ffffff; /* White text */
+  padding: 2rem 1rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 -4px 6px #000000; /* subtle shadow above footer */
+  margin-top: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Footer Links */
+footer a {
+  color: #ffffff; /* White links */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #ffccff; /* Lighter purple on hover */
+  text-decoration: underline;
+}
+
+footer a img {
+    height: 50px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Footer Headings */
+footer h5 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Footer Text */
+footer p {
+  margin: 0.5rem 0;
+  color: #ffffff;
+}
+
+/* Social icons or small links (optional) */
+footer .social-icons a {
+  margin: 0 0.5rem;
+  color: #ffffff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+  color: #ffccff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer {
+    padding: 2rem 0.5rem;
+  }
+
+  footer p,
+  footer a {
+    font-size: 0.9rem;
+  }
+}
