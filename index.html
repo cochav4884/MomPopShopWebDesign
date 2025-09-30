@@ -58,41 +58,108 @@
             </h1>
           </header>
 
-<!-- Hero Section -->
-<div class="hero">
-  <div class="hero-left">
-    <img src="images/corinne_bw.jpg" alt="photo of Corinne" />
-  </div>
-  <div class="hero-right">
-    <div class="hero-box">
-      <h1>Founder & Software Developer Corinne Padilla</h1>
-      <p class="subheader">
-    Helping local businesses build simple, beautiful websites that grow
-    their customer base.
-  </p>
-      <button type="button" class="custom-button">Author Bio</button>
-    </div>
-  </div>
-</div>
+          <!-- Hero Section -->
+          <div class="hero">
+            <div class="hero-left">
+              <img src="images/corinne_bw.jpg" alt="photo of Corinne" />
+            </div>
+            <div class="hero-right">
+              <div class="hero-box">
+                <h1>Founder & Software Developer Corinne Padilla</h1>
+                <p class="subheader">
+                  Helping local businesses build simple, beautiful websites that
+                  grow their customer base.
+                </p>
+                <button type="button" class="custom-button">Author Bio</button>
+              </div>
+            </div>
+          </div>
 
-<!-- Content Below Hero -->
-<div class="hero-below">
- 
-  <p class="subheader">
-    Whether you need a brand new website or a refresh, I specialize in
-    creating easy-to-manage, responsive sites using HTML, CSS, and
-    JavaScript. I can use backend code for form submission success!
-  </p>
-  <p>
-    <a href="services.html" class="custom-button"> View My Services </a>
-  </p>
-</div>
-
-
-         
+          <!-- Content Below Hero -->
+          <div class="hero-below">
+            <p class="subheader">
+              Whether you need a brand new website or a refresh, I specialize in
+              creating easy-to-manage, responsive sites using HTML, CSS, and
+              JavaScript. I can use backend code for form submission success!
+            </p>
+            <p>
+              <a href="services.html" class="custom-button">
+                View My Services
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Images used to open the lightbox -->
+<div class="row">
+  <div class="column">
+    <img src="images/corinne_bw.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow" alt="Nature">
+  </div>
+  <div class="column">
+    <img src="images/corinne_bw.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow" alt="Snow">
+  </div>
+  <div class="column">
+    <img src="images/corinne_bw.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow" alt="Mountains">
+  </div>
+  <div class="column">
+    <img src="images/corinne_bw.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow" alt="Lights">
+  </div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+      <img src="images/corinne_bw.jpg" class="modal-img" alt="Wide view of Nature">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+      <img src="images/corinne_bw.jpg" class="modal-img" alt="Wide view of Snow">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+      <img src="images/corinne_bw.jpg\" class="modal-img" alt="Wide view of Mountains">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="images/corinne_bw.jpg" class="modal-img" alt="Wide view of Lights">
+    </div>
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail image controls -->
+    <div class="column">
+      <img class="demo" src="images/corinne_bw.jpg" onclick="currentSlide(1)" alt="Nature">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="images/corinne_bw.jpg" onclick="currentSlide(2)" alt="Snow">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="images/corinne_bw.jpg" onclick="currentSlide(3)" alt="Mountains">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="images/corinne_bw.jpg" onclick="currentSlide(4)" alt="Lights">
+    </div>
+  </div>
+</div>
 
     <!-- Modal HTML -->
     <div
@@ -135,6 +202,49 @@
         logoModal.show();
       });
     </script>
+
+    <script>
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
 
     <!-- Include navbar and footer JS files -->
     <script src="components/navbar.js"></script>
