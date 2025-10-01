@@ -1,0 +1,153 @@
+/* Base Layout */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #282c34;
+}
+
+/* Navbar */
+.nav {
+  background-color: #400669;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.nav .title a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffd700;
+  font-size: 1.5rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+  color: #ffd700;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background: #ffffff;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.header h1 {
+  color: #400669;
+}
+
+.tagline {
+  font-weight: bold;
+  color: #282c34;
+}
+
+/* Sections */
+.features-container {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 1200px;
+}
+
+.feature-box {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px #000000;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  color: #400669;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.paragraph {
+  color: #282c34;
+  margin-bottom: 1rem;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.image-card img,
+.image-card2 img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px #000000;
+}
+
+/* Footer */
+.footer {
+  background: #400669;
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.footer-contact h2 {
+  margin-bottom: 0.5rem;
+  color: #ffd700;
+}
+
+.footer a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background: #400669;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    padding: 1rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}

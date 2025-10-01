@@ -1,0 +1,166 @@
+/* Base Layout */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #282c34;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #400669;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbar-brand .brand-link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffd700;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffd700;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Slogan */
+.slogan {
+  text-align: center;
+  font-weight: bold;
+  margin: 2rem auto;
+  color: #400669;
+}
+
+/* Disclaimer */
+.disclaimer {
+  text-align: center;
+  margin: 1rem auto;
+  max-width: 800px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Design Cards */
+.design-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px #000000;
+  margin: 2rem auto;
+  max-width: 1000px;
+  overflow: hidden;
+}
+
+.design-card img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+}
+
+.design-card-content {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.design-card-content h2 {
+  color: #400669;
+  margin-bottom: 1rem;
+}
+
+.design-card-content p {
+  color: #282c34;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #400669;
+  color: #ffd700;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #282c34;
+}
+
+/* Footer */
+.footer {
+  background: #400669;
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.footer-contact h2 {
+  margin-bottom: 0.5rem;
+  color: #ffd700;
+}
+
+.footer a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #400669;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .design-card {
+    flex-direction: column;
+  }
+
+  .design-card img {
+    max-width: 100%;
+  }
+}
