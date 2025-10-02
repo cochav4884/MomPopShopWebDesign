@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Photo Shop - Gallery</title>
+  <link rel="stylesheet" href="../sampleStyles/multiPage.css">
+  <link rel="icon" type="image/png" href="../images/logo_small.jpeg">
+</head>
+<body>
+  <div class="container">
+    <!-- Navbar -->
+    <nav class="nav">
+      <h1 class="title"><a href="../index.html">Retro Photo Shop</a></h1>
+      <button type="button" class="hamburger" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="navList">
+        <li><a class="navLink" href="../sampleWebsites/multiPage.html">Home</a></li>
+        <li><a class="navLink" href="../sampleWebsites/MPW-Gallery-Page.html">Gallery</a></li>
+        <li><a class="navLink" href="../sampleWebsites/MPW-Booking-Page.html">Booking</a></li>
+        <li><a class="navLink" href="../sampleWebsites/MPW-Contact-Page.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <header class="header">
+        <h1 class="pageTitle2">Gallery</h1>
+        <p>Please Note: The forms presented on this site are for demonstration purposes only...</p>
+        <p class="intro">Explore our collection of vintage-inspired photos and portraits.</p>
+      </header>
+
+      <!-- Photographers Gallery -->
+      <section class="gallerySection">
+        <h3 class="sectionTitle">Photographers</h3>
+        <div class="galleryGrid" id="photographersGrid"></div>
+      </section>
+
+      <!-- Colored Photos Gallery -->
+      <section class="gallerySection">
+        <h3 class="sectionTitle">Colored Photos</h3>
+        <div class="galleryGrid" id="retroGrid"></div>
+      </section>
+
+      <!-- Black/White & Specialty Photos Gallery -->
+      <section class="gallerySection">
+        <h3 class="sectionTitle">Black/White & Specialty Photos</h3>
+        <div class="galleryGrid" id="clientsGrid"></div>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modalOverlay hidden" id="modalOverlay">
+      <div class="modalContent">
+        <img class="enlargedImage" id="modalImage" src="" alt="">
+        <div class="caption" id="modalCaption"></div>
+        <button class="button" type="button" id="closeModal">Close</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="#" class="backToTop">
+        <img src="../images/logo_small.jpeg" alt="logo image" />
+      </a>
+      <div>&copy; 2025 Retro Photo Shop — All rights reserved.</div>
+      <div class="footer-contact">
+        <h2>Contact Information</h2>
+        <p><strong>Owners:</strong> Steve and Gary</p>
+        <p><strong>Phone Number:</strong> (555) 123-4567</p>
+        <p><strong>Business Hours:</strong></p>
+        <ul>
+          <li>Monday - Friday: 10:00am to 6:00pm</li>
+          <li>Saturday: 11:00am to 3:00pm</li>
+          <li>Closed Sunday and Holidays</li>
+        </ul>
+        <p><strong>Email:</strong> <a href="mailto:contact@retrophotoshop.com">contact@retrophotoshop.com</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JS Module -->
+  <script type="module">
+    import { photographerImages, retroPhotoImages, clientImages } from "../sampleWebsitesJS/multiPageData.js";
+
+    // Create an image card
+ function createImageBox(item) {
+  const div = document.createElement("div");
+  div.classList.add("imageBox");
+
+  const img = document.createElement("img");
+  img.src = item.src;
+  img.alt = item.alt;
+  img.classList.add("galleryImage"); // <- add this class
+
+  div.appendChild(img);
+
+  div.addEventListener("click", () => openModal(item));
+  return div;
+}
+
+
+    // Render a gallery grid
+    function renderGallery(gridId, data) {
+      const grid = document.getElementById(gridId);
+      data.forEach(item => grid.appendChild(createImageBox(item)));
+    }
+
+    renderGallery("photographersGrid", photographerImages);
+    renderGallery("retroGrid", retroPhotoImages);
+    renderGallery("clientsGrid", clientImages);
+
+    // Modal logic
+    const modalOverlay = document.getElementById("modalOverlay");
+    const modalImage = document.getElementById("modalImage");
+    const modalCaption = document.getElementById("modalCaption");
+    const closeModalBtn = document.getElementById("closeModal");
+
+    function openModal(item) {
+      modalImage.src = item.src;
+      modalImage.alt = item.alt;
+
+      let caption = `<strong>${item.alt}</strong>`;
+      if (item.name) caption += `<br>Name: ${item.name}`;
+      if (item.years) caption += `<br>Years: ${item.years}`;
+      if (item.about) caption += `<br>About: ${item.about}`;
+      if (item.experience) caption += `<br>Experience: ${item.experience}`;
+
+      modalCaption.innerHTML = caption;
+      modalOverlay.classList.remove("hidden");
+    }
+
+    closeModalBtn.addEventListener("click", () => modalOverlay.classList.add("hidden"));
+    modalOverlay.addEventListener("click", e => { if (e.target === modalOverlay) modalOverlay.classList.add("hidden"); });
+
+    // Hamburger menu
+    const hamburger = document.querySelector(".hamburger");
+    const navList = document.querySelector(".navList");
+    hamburger.addEventListener("click", () => navList.classList.toggle("navListOpen"));
+    document.querySelectorAll(".navLink").forEach(link => link.addEventListener("click", () => navList.classList.remove("navListOpen")));
+
+    // Back-to-top
+    const backToTop = document.querySelector(".backToTop");
+    window.addEventListener("scroll", () => { backToTop.style.display = window.scrollY > 300 ? "block" : "none"; });
+    backToTop.addEventListener("click", e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+  </script>
+</body>
+</html>

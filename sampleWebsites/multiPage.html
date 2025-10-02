@@ -1,114 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Retro Photo Shop</title>
-  <link rel="stylesheet" href="sampleStyles/multiPage.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="nav">
-    <h1 class="title">
-      <a href="../index.html">Retro Photo Shop</a>
-    </h1>
-    <button type="button" class="hamburger" aria-label="Toggle navigation menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-    <ul class="nav-list">
-      <li><a href="multiPage.html">Home</a></li>
-      <li><a href="../sampleWebsitesJS/MPW-Gallery-Page.js">Gallery</a></li>
-      <li><a href="../sampleWebsitesJS/MPW-Booking-Page.js">Booking</a></li>
-      <li><a href="../sampleWebsitesJS/MPW-Contact-Page.js">Contact</a></li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Photo Shop</title>
 
-  <!-- Main Content -->
-  <main>
-    <header class="header">
-      <h1>Retro Photo Shop</h1>
-      <p>
-        Please Note: The forms presented on this site are for demonstration
-        purposes only, and the contact information shown in the footer is
-        fictitious and intended solely for illustrative use. For accurate and
-        current contact details, please refer to the original website's Landing
-        Page. You may return to that page at any time by clicking the site title
-        in the navigation bar.
-      </p>
-      <p class="tagline">
-        Welcome to our vintage-inspired photo studio. We capture timeless moments with a nostalgic twist.
-      </p>
-    </header>
+    <!-- Favicons -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/public/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+    <link rel="shortcut icon" href="/public/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/public/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="MomPopShopWebDesign.com" />
+    <link rel="manifest" href="/public/site.webmanifest" />
 
-    <!-- Classic Portraits -->
-    <section class="features-container">
-      <article class="feature-box">
-        <h2 class="section-title">Classic Portraits</h2>
-        <p class="paragraph">Beautifully crafted portraits that take you back in time.</p>
-        <div class="image-grid">
-          <div class="image-card2"><img src="../sampleImages/mulitPageImages/classic.jpg" alt="Classic Portrait 1"></div>
-          <div class="image-card2"><img src="../sampleImages/mulitPageImages/classic2.jpg" alt="Classic Portrait 2"></div>
-          <div class="image-card2"><img src="../sampleImages/mulitPageImages/classic3.jpg" alt="Classic Portrait 3"></div>
-          <div class="image-card2"><img src="../sampleImages/mulitPageImages/classic4.jpg" alt="Classic Portrait 4"></div>
-          <div class="image-card2"><img src="../sampleImages/mulitPageImages/classic5.jpg" alt="Classic Portrait 5"></div>
-          <div class="image-card2"><img src="../sampleImages/mulitPageImages/classic6.jpg" alt="Classic Portrait 6"></div>
-        </div>
-      </article>
-    </section>
-
-    <!-- Photo Restoration -->
-    <section class="features-container">
-      <article class="feature-box">
-        <h2 class="section-title">Photo Restoration</h2>
-        <p class="paragraph">We restore and preserve your precious old photographs.</p>
-        <div class="image-grid">
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/restore.jpg" alt="Restoration Example 1"></div>
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/restore2.jpg" alt="Restoration Example 2"></div>
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/restore3.jpg" alt="Restoration Example 3"></div>
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/restore4.jpg" alt="Restoration Example 4"></div>
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/restore5.jpg" alt="Restoration Example 5"></div>
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/restore6.jpg" alt="Restoration Example 6"></div>
-        </div>
-      </article>
-    </section>
-
-    <!-- Event Photography -->
-    <section class="features-container">
-      <article class="feature-box">
-        <h2 class="section-title">Event Photography</h2>
-        <p class="paragraph">Capture your special moments with our vintage style.</p>
-        <div class="image-grid">
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/event.jpg" alt="Event Example 1"></div>
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/event2.jpg" alt="Event Example 2"></div>
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/event3.jpg" alt="Event Example 3"></div>
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/event4.jpg" alt="Event Example 4"></div>
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/event5.jpg" alt="Event Example 5"></div>
-          <div class="image-card"><img src="../sampleImages/mulitPageImages/event6.jpg" alt="Event Example 6"></div>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div>&copy; 2025 Retro Photo Shop — All rights reserved.</div>
-    <div class="footer-contact">
-      <h2>Contact Information</h2>
-      <p><strong>Owners:</strong> Steve and Gary</p>
-      <p><strong>Phone Number:</strong> (555) 123-4567</p>
-      <p><strong>Business Hours:</strong></p>
-      <ul>
-        <li>Monday - Friday: 10:00am to 6:00pm</li>
-        <li>Saturday: 11:00am to 3:00pm</li>
-        <li>Closed Sunday and Holidays</li>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../sampleStyles/multiPage.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="nav">
+      <h1 class="title">
+        <a href="../index.html">Retro Photo Shop</a>
+      </h1>
+      <button
+        type="button"
+        class="hamburger"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="navList">
+        <li>
+          <a class="navLink" href="../sampleWebsites/multiPage.html">Home</a>
+        </li>
+        <li>
+          <a class="navLink" href="../sampleWebsites/MPW-Gallery-Page.html"
+            >Gallery</a
+          >
+        </li>
+        <li>
+          <a class="navLink" href="../sampleWebsites/MPW-Booking-Page.html"
+            >Booking</a
+          >
+        </li>
+        <li>
+          <a class="navLink" href="../sampleWebsites/MPW-Contact-Page.html"
+            >Contact</a
+          >
+        </li>
       </ul>
-      <p><strong>Email:</strong> <a href="mailto:contact@retrophotoshop.com">contact@retrophotoshop.com</a></p>
-    </div>
-  </footer>
+    </nav>
 
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
-</body>
+    <!-- Main Content -->
+    <main>
+      <header class="header">
+        <h1>Retro Photo Shop</h1>
+        <p>
+          Please Note: The forms presented on this site are for demonstration
+          purposes only, and the contact information shown in the footer is
+          fictitious and intended solely for illustrative use. For accurate and
+          current contact details, please refer to the original website's
+          Landing Page. You may return to that page at any time by clicking the
+          site title in the navigation bar.
+        </p>
+        <p class="tagline">
+          Welcome to our vintage-inspired photo studio. We capture timeless
+          moments with a nostalgic twist.
+        </p>
+      </header>
+
+      <!-- Classic Portraits -->
+      <section class="featuresContainer">
+        <article class="featureBox">
+          <h2 class="sectionTitle">Classic Portraits</h2>
+          <p class="paragraph">
+            Beautifully crafted portraits that take you back in time.
+          </p>
+          <div class="imageGrid">
+            <div class="imageCard2">
+              <img
+                src="../images/multiPageImages/classic.jpg"
+                alt="Classic Portrait 1"
+                class="classicImage"
+              />
+            </div>
+            <div class="imageCard2">
+              <img
+                src="../images/multiPageImages/classic2.jpg"
+                alt="Classic Portrait 2"
+                class="classicImage"
+              />
+            </div>
+            <div class="imageCard2">
+              <img
+                src="../images/multiPageImages/classic3.jpg"
+                alt="Classic Portrait 3"
+                class="classicImage"
+              />
+            </div>
+            <div class="imageCard2">
+              <img
+                src="../images/multiPageImages/classic4.jpg"
+                alt="Classic Portrait 4"
+                class="classicImage"
+              />
+            </div>
+            <div class="imageCard2">
+              <img
+                src="../images/multiPageImages/classic5.jpg"
+                alt="Classic Portrait 5"
+                class="classicImage"
+              />
+            </div>
+            <div class="imageCard2">
+              <img
+                src="../images/multiPageImages/classic6.jpg"
+                alt="Classic Portrait 6"
+                class="classicImage"
+              />
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Photo Restoration -->
+      <section class="featuresContainer">
+        <article class="featureBox">
+          <h2 class="sectionTitle">Photo Restoration</h2>
+          <p class="paragraph">
+            We restore and preserve your precious old photographs.
+          </p>
+          <div class="imageGrid">
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/restore.jpg"
+                alt="Restoration Example 1"
+              />
+            </div>
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/restore2.jpg"
+                alt="Restoration Example 2"
+              />
+            </div>
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/restore3.jpg"
+                alt="Restoration Example 3"
+              />
+            </div>
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/restore4.jpg"
+                alt="Restoration Example 4"
+              />
+            </div>
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/restore5.jpg"
+                alt="Restoration Example 5"
+              />
+            </div>
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/restore6.jpg"
+                alt="Restoration Example 6"
+              />
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Event Photography -->
+      <section class="featuresContainer">
+        <article class="featureBox">
+          <h2 class="sectionTitle">Event Photography</h2>
+          <p class="paragraph">
+            Capture your special moments with our vintage style.
+          </p>
+          <div class="imageGrid">
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/event.jpg"
+                alt="Event Example 1"
+              />
+            </div>
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/event2.jpg"
+                alt="Event Example 2"
+              />
+            </div>
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/event3.jpg"
+                alt="Event Example 3"
+              />
+            </div>
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/event4.jpg"
+                alt="Event Example 4"
+              />
+            </div>
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/event5.jpg"
+                alt="Event Example 5"
+              />
+            </div>
+            <div class="imageCard">
+              <img
+                src="../images/multiPageImages/event6.jpg"
+                alt="Event Example 6"
+              />
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modalOverlay hidden" id="modalOverlay">
+      <div class="modalContent">
+        <img class="enlargedImage" id="modalImage" src="" alt="" />
+        <div class="caption" id="modalCaption"></div>
+        <button class="button" type="button" id="closeModal">Close</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="#" class="backToTop">
+        <img src="../images/logo_small.jpeg" alt="logo image" />
+      </a>
+      <div>&copy; 2025 Retro Photo Shop — All rights reserved.</div>
+      <div class="footer-contact">
+        <h2>Contact Information</h2>
+        <p><strong>Owners:</strong> Steve and Gary</p>
+        <p><strong>Phone Number:</strong> (555) 123-4567</p>
+        <p><strong>Business Hours:</strong></p>
+        <ul>
+          <li>Monday - Friday: 10:00am to 6:00pm</li>
+          <li>Saturday: 11:00am to 3:00pm</li>
+          <li>Closed Sunday and Holidays</li>
+        </ul>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:contact@retrophotoshop.com"
+            >contact@retrophotoshop.com</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <!-- JS for Hamburger and Back-to-Top -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburger = document.querySelector(".hamburger");
+        const navList = document.querySelector(".navList");
+
+        hamburger.addEventListener("click", () => {
+          navList.classList.toggle("navListOpen");
+        });
+
+        const navLinks = document.querySelectorAll(".navLink");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (navList.classList.contains("navListOpen")) {
+              navList.classList.remove("navListOpen");
+            }
+          });
+        });
+
+        // Back-to-Top Button
+        const backToTop = document.getElementById("back-to-top");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTop.style.display = "block";
+          } else {
+            backToTop.style.display = "none";
+          }
+        });
+
+        backToTop.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    </script>
+
+    <!-- Scripts -->
+    <script type="module">
+      import {
+        photographerImages,
+        retroPhotoImages,
+        clientImages,
+      } from "../multiPageData.js";
+
+      // Utility: create imageBox
+      function createImageBox(item) {
+        const div = document.createElement("div");
+        div.classList.add("imageBox");
+
+        const img = document.createElement("img");
+        img.classList.add("galleryImage");
+        img.src = `../${item.src}`;
+        img.alt = item.alt;
+
+        div.appendChild(img);
+
+        // Click opens modal
+        div.addEventListener("click", () => openModal(item));
+        return div;
+      }
+
+      // Render galleries
+      function renderGallery(gridId, data) {
+        const grid = document.getElementById(gridId);
+        data.forEach((item) => {
+          grid.appendChild(createImageBox(item));
+        });
+      }
+
+      renderGallery("photographersGrid", photographerImages);
+      renderGallery("retroGrid", retroPhotoImages);
+      renderGallery("clientsGrid", clientImages);
+
+      // Modal setup
+      const modalOverlay = document.getElementById("modalOverlay");
+      const modalImage = document.getElementById("modalImage");
+      const modalCaption = document.getElementById("modalCaption");
+      const closeModalBtn = document.getElementById("closeModal");
+
+      function openModal(item) {
+        modalImage.src = `../${item.src}`;
+        modalImage.alt = item.alt;
+
+        let caption = `<p><strong>${item.alt}</strong></p>`;
+        if (item.name) caption += `<p>Name: ${item.name}</p>`;
+        if (item.years) caption += `<p>Years: ${item.years}</p>`;
+        if (item.about) caption += `<p>About: ${item.about}</p>`;
+        if (item.experience) caption += `<p>Experience: ${item.experience}</p>`;
+
+        modalCaption.innerHTML = caption;
+        modalOverlay.classList.remove("hidden");
+      }
+
+      closeModalBtn.addEventListener("click", () => {
+        modalOverlay.classList.add("hidden");
+      });
+      modalOverlay.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) {
+          modalOverlay.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
 </html>

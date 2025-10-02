@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Photo Shop - Booking</title>
+  <link rel="stylesheet" href="../sampleStyles/multiPage.css">
+</head>
+<body>
+  <div class="container">
+     <!-- Navbar -->
+  <nav class="nav">
+    <h1 class="title">
+      <a href="../index.html">Retro Photo Shop</a>
+    </h1>
+    <button type="button" class="hamburger" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <ul class="navList">
+      <li><a class="navLink" href="../sampleWebsites/multiPage.html">Home</a></li>
+      <li><a class="navLink" href="../sampleWebsites/MPW-Gallery-Page.html">Gallery</a></li>
+      <li><a class="navLink" href="../sampleWebsites/MPW-Booking-Page.html">Booking</a></li>
+      <li><a class="navLink" href="../sampleWebsites/MPW-Contact-Page.html">Contact</a></li>
+    </ul>
+  </nav>
+
+    <!-- Main Content -->
+    <main>
+      <header class="header">
+        <h1 class="pageTitle2">Book Your Photo Session</h1>
+        <p>Please Note: The forms on this site are for demonstration purposes only. Contact information in the footer is fictitious. For accurate details, refer to the original website's Landing Page.</p>
+        <p class="intro">Choose your preferred date, time, and package below.</p>
+        <p class="intro">We look forward to capturing your memories!</p>
+      </header>
+
+      <section>
+        <form class="bookingForm" id="bookingForm" noValidate autocomplete="off">
+          <label class="formLabel" for="name">Full Name</label>
+          <input class="formInput" type="text" id="name" name="name" placeholder="Your full name" required>
+          <div class="error" id="error-name"></div>
+
+          <label class="formLabel" for="email">Email Address</label>
+          <input class="formInput" type="email" id="email" name="email" placeholder="you@example.com" required>
+          <div class="error" id="error-email"></div>
+
+          <label class="formLabel" for="phone">Phone Number</label>
+          <input class="formInput" type="tel" id="phone" name="phone" placeholder="(optional)">
+
+          <label class="formLabel" for="date">Preferred Date</label>
+          <input class="formInput" type="date" id="date" name="date" required>
+          <div class="error" id="error-date"></div>
+
+          <label class="formLabel" for="time">Preferred Time</label>
+          <input class="formInput" type="time" id="time" name="time" required>
+          <div class="error" id="error-time"></div>
+
+          <label class="formLabel" for="package">Select Package</label>
+          <select class="formInput" id="package" name="package" required>
+            <option value="" disabled selected>-- Choose a Package --</option>
+            <option value="basic">Basic - 30 min session</option>
+            <option value="standard">Standard - 1 hour session</option>
+            <option value="deluxe">Deluxe - 2 hour session with prints</option>
+          </select>
+          <div class="error" id="error-package"></div>
+
+          <label class="formLabel" for="notes">Additional Notes</label>
+          <textarea class="formInput" id="notes" name="notes" rows="4" placeholder="Any special requests or info"></textarea>
+
+          <button type="submit" class="button">Submit Booking</button>
+        </form>
+        <div id="statusMessage"></div>
+      </section>
+    </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="#" class="backToTop">
+    <img src="../images/logo_small.jpeg" alt="logo image" />
+  </a>
+    <div>&copy; 2025 Retro Photo Shop — All rights reserved.</div>
+    <div class="footer-contact">
+      <h2>Contact Information</h2>
+      <p><strong>Owners:</strong> Steve and Gary</p>
+      <p><strong>Phone Number:</strong> (555) 123-4567</p>
+      <p><strong>Business Hours:</strong></p>
+      <ul>
+        <li>Monday - Friday: 10:00am to 6:00pm</li>
+        <li>Saturday: 11:00am to 3:00pm</li>
+        <li>Closed Sunday and Holidays</li>
+      </ul>
+      <p><strong>Email:</strong> <a href="mailto:contact@retrophotoshop.com">contact@retrophotoshop.com</a></p>
+    </div>
+  </footer>
+
+  <!-- JS for Hamburger and Back-to-Top -->
+  <script>
+      // Back-to-Top Button
+      const backToTop = document.getElementById("back-to-top");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.style.display = "block";
+        } else {
+          backToTop.style.display = "none";
+        }
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+  </script>
+
+    <!-- Scripts -->
+  <script>
+    // Hamburger toggle
+    const hamburger = document.querySelector(".hamburger");
+    const navList = document.querySelector(".navList");
+    let menuOpen = false;
+    hamburger.addEventListener("click", () => {
+      menuOpen = !menuOpen;
+      navList.style.display = menuOpen ? "block" : "none";
+    });
+    navList.querySelectorAll(".navLink").forEach(link => {
+      link.addEventListener("click", () => { navList.style.display = "none"; menuOpen = false; });
+    });
+
+    // Form validation
+    const form = document.getElementById("bookingForm");
+    const errorsDivs = {
+      name: document.getElementById("error-name"),
+      email: document.getElementById("error-email"),
+      date: document.getElementById("error-date"),
+      time: document.getElementById("error-time"),
+      package: document.getElementById("error-package")
+    };
+    const statusMessage = document.getElementById("statusMessage");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      Object.values(errorsDivs).forEach(el => el.textContent = "");
+      statusMessage.textContent = "";
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const date = form.date.value;
+      const time = form.time.value;
+      const packageVal = form.package.value;
+      const notes = form.notes.value.trim();
+
+      let hasError = false;
+      if (!name) { errorsDivs.name.textContent = "Full name is required."; hasError = true; }
+      if (!email) { errorsDivs.email.textContent = "Email address is required."; hasError = true; }
+      else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) { errorsDivs.email.textContent = "Invalid email address."; hasError = true; }
+      if (!date) { errorsDivs.date.textContent = "Please select a preferred date."; hasError = true; }
+      if (!time) { errorsDivs.time.textContent = "Please select a preferred time."; hasError = true; }
+      if (!packageVal) { errorsDivs.package.textContent = "Please select a package."; hasError = true; }
+      if (hasError) return;
+
+      const formData = { name, email, phone, date, time, package: packageVal, notes };
+      console.log("Booking submitted:", formData);
+
+      statusMessage.textContent = `Thank you for booking with us, ${name}! We will contact you soon.`;
+      statusMessage.style.backgroundColor = "#cc0000";
+      statusMessage.style.color = "#fff";
+      statusMessage.style.padding = "20px";
+      statusMessage.style.borderRadius = "8px";
+      statusMessage.style.textAlign = "center";
+      statusMessage.style.fontWeight = "bold";
+      statusMessage.style.fontSize = "1.2rem";
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>

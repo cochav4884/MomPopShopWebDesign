@@ -1,18 +1,20 @@
-// src/wrdata/WRData.js
+// sampleWebsitesJS/websiteRedesignData.js
 
-import img1 from "../wrlinkimages/old-worker3.jpg";
-import img2 from "../wrlinkimages/new-worker13.jpg";
-import img3 from "../wrlinkimages/new-worker17.jpg";
-import img4 from "../wrlinkimages/new-worker7.jpg";
-import img5 from "../wrlinkimages/new-worker12.jpg";
-import img6 from "../wrlinkimages/new-worker10.jpg";
-import img7 from "../wrlinkimages/auto-contract.jpg";
-import img8 from "../wrlinkimages/new-worker5.jpg";
-import img9 from "../wrlinkimages/new-worker9.jpg";
-import img10 from "../wrlinkimages/new-worker14.jpg";
-import img11 from "../wrlinkimages/new-worker18.jpg";
-import img12 from "../wrlinkimages/new-worker15.jpg";
+// Import images
+import img1 from "../sampleImages/websiteRedesignImages/old-worker3.jpg";
+import img2 from "../sampleImages/websiteRedesignImages/new-worker13.jpg";
+import img3 from "../sampleImages/websiteRedesignImages/new-worker17.jpg";
+import img4 from "../sampleImages/websiteRedesignImages/new-worker7.jpg";
+import img5 from "../sampleImages/websiteRedesignImages/new-worker12.jpg";
+import img6 from "../sampleImages/websiteRedesignImages/new-worker10.jpg";
+import img7 from "../sampleImages/websiteRedesignImages/auto-contract.jpg";
+import img8 from "../sampleImages/websiteRedesignImages/new-worker5.jpg";
+import img9 from "../sampleImages/websiteRedesignImages/new-worker9.jpg";
+import img10 from "../sampleImages/websiteRedesignImages/new-worker14.jpg";
+import img11 from "../sampleImages/websiteRedesignImages/new-worker18.jpg";
+import img12 from "../sampleImages/websiteRedesignImages/new-worker15.jpg";
 
+// Employee data array
 const employeeData = [
   {
     id: 1,
@@ -100,4 +102,5 @@ const employeeData = [
   },
 ];
 
+// Export the data
 export default employeeData;

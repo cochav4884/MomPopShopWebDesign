@@ -1,122 +1,74 @@
 // mpwBookingPage.js
 
-// ------------------ Menu Toggle ------------------
+// ------------------ Helper ------------------
+function createEl(tag, className, innerHTML) {
+  const el = document.createElement(tag);
+  if (className) el.className = className;
+  if (innerHTML) el.innerHTML = innerHTML;
+  return el;
+}
+
+// ------------------ Container ------------------
+const container = createEl("div", "container");
+
+// ------------------ Navigation ------------------
+const nav = createEl("nav", "nav");
+nav.innerHTML = `
+  <h1 class="title"><a href="../index.html" style="color:#cc0000;text-decoration:none;">Retro Photo Shop</a></h1>
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+`;
+
+const navList = createEl("ul", "navList");
+navList.style.display = "none"; // hidden by default
+navList.innerHTML = `
+  <li><a class="navLink" href="multi-page-website.html">Home</a></li>
+  <li><a class="navLink" href="mpw-gallery-page.html">Gallery</a></li>
+  <li><a class="navLink" href="mpw-booking-page.html">Booking</a></li>
+  <li><a class="navLink" href="mpw-contact-page.html">Contact</a></li>
+`;
+
+nav.appendChild(navList);
+container.appendChild(nav);
+
+// ------------------ Hamburger Toggle ------------------
 let menuOpen = false;
+const hamburger = nav.querySelector(".hamburger");
+
 function toggleMenu() {
   menuOpen = !menuOpen;
   navList.style.display = menuOpen ? "block" : "none";
 }
 
-// ------------------ Form Handling ------------------
-function handleSubmit(event) {
-  event.preventDefault();
-
-  // Clear previous errors
-  Object.values(errorsDivs).forEach((el) => (el.textContent = ""));
-  statusMessage.textContent = "";
-
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
-  const phone = form.phone.value.trim();
-  const date = form.date.value;
-  const time = form.time.value;
-  const packageVal = form.package.value;
-  const notes = form.notes.value.trim();
-
-  let hasError = false;
-
-  // Validation
-  if (!name) {
-    errorsDivs.name.textContent = "Full name is required.";
-    hasError = true;
-  }
-
-  if (!email) {
-    errorsDivs.email.textContent = "Email address is required.";
-    hasError = true;
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
-    errorsDivs.email.textContent = "Invalid email address.";
-    hasError = true;
-  }
-
-  if (!date) {
-    errorsDivs.date.textContent = "Please select a preferred date.";
-    hasError = true;
-  }
-
-  if (!time) {
-    errorsDivs.time.textContent = "Please select a preferred time.";
-    hasError = true;
-  }
-
-  if (!packageVal) {
-    errorsDivs.package.textContent = "Please select a package.";
-    hasError = true;
-  }
-
-  if (hasError) return;
-
-  const formData = { name, email, phone, date, time, package: packageVal, notes };
-  console.log("Booking submitted:", formData);
-  alert("Booking successfully submitted! Check the console for details.");
-
-  // Show success message
-  statusMessage.textContent = `Thank you for booking with us, ${name}! We will contact you soon.`;
-  statusMessage.style.backgroundColor = "#cc0000";
-  statusMessage.style.color = "#fff";
-  statusMessage.style.padding = "20px";
-  statusMessage.style.borderRadius = "8px";
-  statusMessage.style.textAlign = "center";
-  statusMessage.style.fontWeight = "bold";
-  statusMessage.style.fontSize = "1.2rem";
-
-  form.reset();
-}
-
-// ------------------ Build Page ------------------
-const container = document.createElement("div");
-container.className = "container";
-
-// ----------- Navigation -----------
-const nav = document.createElement("nav");
-nav.className = "nav";
-nav.innerHTML = `
-  <h1 class="title"><a href="/" style="color:#cc0000;text-decoration:none;">Retro Photo Shop</a></h1>
-  <button class="hamburger" aria-label="Toggle navigation menu">☰</button>
-`;
-const navList = document.createElement("ul");
-navList.className = "navList";
-navList.style.display = "none"; // Initially hidden
-navList.innerHTML = `
-  <li><a href="multi-page-website.html">Home</a></li>
-  <li><a href="mpw-gallery-page.html">Gallery</a></li>
-  <li><a href="mpw-booking-page.html">Booking</a></li>
-  <li><a href="mpw-contact-page.html">Contact</a></li>
-`;
-nav.appendChild(navList);
-container.appendChild(nav);
-
-const hamburger = nav.querySelector(".hamburger");
 hamburger.addEventListener("click", toggleMenu);
 
-// ----------- Main Content -----------
-const main = document.createElement("main");
+// Close menu when a link is clicked
+navList.querySelectorAll(".navLink").forEach(link => {
+  link.addEventListener("click", () => {
+    navList.style.display = "none";
+    menuOpen = false;
+  });
+});
+
+// ------------------ Main Content ------------------
+const main = createEl("main");
 main.innerHTML = `
-  <header class="header" style="margin-bottom:2rem;">
+  <header class="header">
     <h1 class="pageTitle2">Book Your Photo Session</h1>
-    <p>Please Note: The forms presented on this site are for demonstration purposes only, and the contact information shown in the footer is fictitious and intended solely for illustrative use. For accurate and current contact details, please refer to the original website's Landing Page. You may return to that page at any time by clicking the site title in the navigation bar. Once in the official website, you will find a link to the official Contact Me page at: www.mompopshopwebdesign.com.</p>
+    <p>Please Note: The forms on this site are for demonstration purposes only. Contact information in the footer is fictitious. For accurate details, refer to the original website's Landing Page.</p>
     <p class="intro">Choose your preferred date, time, and package below.</p>
     <p class="intro">We look forward to capturing your memories!</p>
   </header>
 `;
 
-const section = document.createElement("section");
-const form = document.createElement("form");
-form.className = "bookingForm";
+const section = createEl("section");
+const form = createEl("form", "bookingForm");
 form.noValidate = true;
 form.autocomplete = "off";
 
-// Add form fields
 form.innerHTML = `
   <label class="formLabel" for="name">Full Name<span style="color:#cc0000">*</span></label>
   <input class="formInput" type="text" id="name" name="name" placeholder="Your full name" required>
@@ -149,19 +101,19 @@ form.innerHTML = `
   <label class="formLabel" for="notes">Additional Notes</label>
   <textarea class="formInput" id="notes" name="notes" rows="4" placeholder="Any special requests or info"></textarea>
 
-  <button type="submit" class="button" style="margin-top:20px">Submit Booking</button>
+  <button type="submit" class="button" style="margin-top:20px;">Submit Booking</button>
 `;
 
 section.appendChild(form);
 main.appendChild(section);
 container.appendChild(main);
 
-// Status message div
-const statusMessage = document.createElement("div");
+// ------------------ Status Message ------------------
+const statusMessage = createEl("div");
 statusMessage.style.marginTop = "20px";
 container.appendChild(statusMessage);
 
-// Error divs for validation
+// ------------------ Form Validation ------------------
 const errorsDivs = {
   name: form.querySelector("#error-name"),
   email: form.querySelector("#error-email"),
@@ -170,12 +122,50 @@ const errorsDivs = {
   package: form.querySelector("#error-package"),
 };
 
-// Add form submit listener
+function handleSubmit(event) {
+  event.preventDefault();
+
+  Object.values(errorsDivs).forEach(el => (el.textContent = ""));
+  statusMessage.textContent = "";
+
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const phone = form.phone.value.trim();
+  const date = form.date.value;
+  const time = form.time.value;
+  const packageVal = form.package.value;
+  const notes = form.notes.value.trim();
+
+  let hasError = false;
+
+  if (!name) { errorsDivs.name.textContent = "Full name is required."; hasError = true; }
+  if (!email) { errorsDivs.email.textContent = "Email address is required."; hasError = true; }
+  else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) { errorsDivs.email.textContent = "Invalid email address."; hasError = true; }
+  if (!date) { errorsDivs.date.textContent = "Please select a preferred date."; hasError = true; }
+  if (!time) { errorsDivs.time.textContent = "Please select a preferred time."; hasError = true; }
+  if (!packageVal) { errorsDivs.package.textContent = "Please select a package."; hasError = true; }
+
+  if (hasError) return;
+
+  const formData = { name, email, phone, date, time, package: packageVal, notes };
+  console.log("Booking submitted:", formData);
+
+  statusMessage.textContent = `Thank you for booking with us, ${name}! We will contact you soon.`;
+  statusMessage.style.backgroundColor = "#cc0000";
+  statusMessage.style.color = "#fff";
+  statusMessage.style.padding = "20px";
+  statusMessage.style.borderRadius = "8px";
+  statusMessage.style.textAlign = "center";
+  statusMessage.style.fontWeight = "bold";
+  statusMessage.style.fontSize = "1.2rem";
+
+  form.reset();
+}
+
 form.addEventListener("submit", handleSubmit);
 
-// ----------- Footer -----------
-const footer = document.createElement("footer");
-footer.className = "footer";
+// ------------------ Footer ------------------
+const footer = createEl("footer", "footer");
 footer.innerHTML = `
   <p><img src="images/logo.png" alt="Logo"></p>
   <div>&copy; 2025 Retro Photo Shop — All rights reserved.</div>
@@ -184,7 +174,7 @@ footer.innerHTML = `
     <p><strong>Owners:</strong> Steve and Gary</p>
     <p><strong>Phone Number:</strong> (555) 123-4567</p>
     <p><strong>Business Hours:</strong></p>
-    <ul style="list-style-type:none;padding-left:0;margin-bottom:1rem;">
+    <ul style="list-style:none;padding-left:0;margin-bottom:1rem;">
       <li>Monday - Friday: 10:00am to 6:00pm</li>
       <li>Saturday: 11:00am to 3:00pm</li>
       <li>Closed Sunday and Holidays</li>
@@ -192,8 +182,7 @@ footer.innerHTML = `
     <p><strong>Email:</strong> <a href="mailto:contact@retrophotoshop.com" style="color:#ffd700">contact@retrophotoshop.com</a></p>
   </div>
 `;
-
 container.appendChild(footer);
 
-// Append everything to body
+// ------------------ Inject into Body ------------------
 document.body.appendChild(container);
