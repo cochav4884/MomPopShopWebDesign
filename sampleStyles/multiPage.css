@@ -345,7 +345,7 @@ select.formInput { cursor: pointer; }
 .footer {
   position: relative;
   background-color: transparent;
-  background-image: url('../linkimages/studio.jpg');
+  background-image: url('../images/multiPageImages/studio.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -368,6 +368,6 @@ select.formInput { cursor: pointer; }
 
 /* ====================== RESPONSIVE ====================== */
 @media (max-width: 480px) {
-  .imageBox, .imageCard, .imageCard2 { min-height: auto; }
+  .imageBox, .imageCard, .imageCard2 { min-height: 0; }
   .bookingForm, .contactForm { padding: 15px 20px; }
 }
