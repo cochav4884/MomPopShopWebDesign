@@ -1,4 +1,4 @@
-/* Base Layout */
+/* ===== Base Layout ===== */
 html,
 body {
   margin: 0;
@@ -11,7 +11,18 @@ body {
   color: #282c34;
 }
 
-/* Images */
+h1 img {
+  max-width: 50px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+h1 b p {
+  color: #400669;
+}
+
+/* ===== Images ===== */
 img {
   max-width: 100%;
   height: auto;
@@ -24,7 +35,7 @@ img:hover {
   transform: scale(1.05);
 }
 
-/* Founder Image */
+/* ===== Founder Image ===== */
 .founder-img {
   width: 140px;
   border-radius: 50%;
@@ -33,12 +44,12 @@ img:hover {
   display: block;
 }
 
-/* Page Header */
+/* ===== Page Header ===== */
 .page-header {
   font-size: clamp(1.5rem, 5vw, 4rem);
   background-color: #ffffff;
   border-radius: 8px;
-  color: #000000;
+  color: #400669;
   font-weight: 700;
   text-align: center;
   margin: 2rem auto;
@@ -49,24 +60,24 @@ img:hover {
   overflow-wrap: break-word;
 }
 
-/* Subheader Text */
+/* ===== Subheader Text ===== */
 .subheader {
   font-size: 1.8rem;
   margin: 2rem;
   margin-bottom: 2rem;
-  color: #282c34;
+  color: #400669;
   text-align: center;
   font-weight: 600;
 }
 
-/* Founder Section Text */
+/* ===== Founder Section Text ===== */
 .founder-text {
   font-size: 1.2rem;
   margin-top: 1rem;
   text-align: center;
 }
 
-/* Links */
+/* ===== Links ===== */
 .privacy-inline-link {
   color: #400669;
   text-decoration: none;
@@ -81,14 +92,52 @@ img:hover {
   text-decoration: underline;
 }
 
-/* Container Padding */
+/* ===== Container Padding ===== */
 .container-fluid {
   padding-bottom: 4rem;
 }
 
-/* Optional: Section Utility Class */
+/* ===== Optional: Section Utility Class ===== */
 .section {
   margin-bottom: 2rem;
   text-align: center;
   color: #000000;
+}
+
+/* ===== Parallax Styles ===== */
+.parallax-container {
+  background-image: url('../images/corinne_bw.jpg'); /* Replace with your hero image */
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.parallax-content {
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for readability */
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.about-image {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px #000000;
+  margin: 1rem;
+} 
+
+.image-card img.about-image {
+  width: 100%;      /* fills the container */
+  height: 250px;    /* fixed height for all images */
+  object-fit: cover; /* ensures image covers the box without stretching */
+  border-radius: 8px;
 }

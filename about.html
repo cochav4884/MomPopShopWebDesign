@@ -1,76 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Mom & Pop Shop Web Design</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Mom & Pop Shop Web Design</title>
 
-<link rel="icon" type="image/png" href="/public/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
-<link rel="shortcut icon" href="/public/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="MomPopShopWebDesign.com" />
-<link rel="manifest" href="/public/site.webmanifest" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/public/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+    <link rel="shortcut icon" href="/public/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/public/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="MomPopShopWebDesign.com" />
+    <link rel="manifest" href="/public/site.webmanifest" />
 
     <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles/about.css" />
-  <link rel="stylesheet" href="styles/navbar.css" />
-  <link rel="stylesheet" href="styles/footer.css" />
-</head>
-<body>
- <!-- Navbar will be loaded here -->
-  <div id="navbar-container"></div>
-
-  <div class="container-fluid">
-    <h1 class="page-header">About Mom & Pop Shop Web Design</h1>
-
-    <p class="subheader">
-      I specialize in creating simple, beautiful, and functional websites
-      tailored for local mom and pop shops. My goal is to help small
-      businesses build a strong and professional online presence — without the
-      high cost or complexity of big design firms.
-    </p>
-
-    <p class="subheader">
-      I use modern technologies like HTML, CSS, and JavaScript to
-      create responsive, mobile-friendly websites that reflect the unique
-      charm of each business I serve.
-    </p>
-
-    <p class="subheader">
-      With a deep respect for community, strong communication, and a creative
-      mindset, I bring every project to life with purpose and personal
-      attention.
-    </p>
-
-    <!-- Meet the Founder Section -->
-    <div class="text-center mt-4 section">
-      <img
-        src="/images/corinne_bw.jpg"
-        alt="Black and white portrait of Corinne"
-        class="founder-img"
-      />
-      <p class="founder-text">
-        Curious about the story behind the work? 
-        <a href="/author.html" class="privacy-inline-link">Meet the founder →</a>
-      </p>
+    <!-- Parallax Section 1 -->
+    <div class="parallax-container">
+      <div class="parallax-content">
+        <h1 class="page-header">
+          <img src="images/logo_small.jpeg" alt="Logo" class="logoImg" />
+          <p>How I work for you!</p>
+        </h1>
+      </div>
     </div>
+
+    <!-- Content Section 1 -->
+    <section class="content-section transparent-section container text-center">
+      <p class="subheader">
+        I specialize in creating simple, beautiful, and functional websites
+        tailored for local mom and pop shops. My goal is to help small
+        businesses build a strong and professional online presence — without the
+        high cost or complexity of big design firms.
+      </p>
+      <!-- Three Images Row -->
+<div class="three-images-row d-flex justify-content-center flex-wrap mt-4 mb-4">
+  <div class="image-card text-center mx-2">
+    <p>Consultation is free.</p>
+    <img src="images/consulation.jpg" alt="image1" class="about-image mb-2" />
   </div>
+  <div class="image-card text-center mx-2">
+    <p>Create a custom website plan.</p>
+    <img src="images/website.jpg" alt="image2" class="about-image mb-2" />
+  </div>
+  <div class="image-card text-center mx-2">
+    <p>Zoom meetings to discuss progress.</p>
+    <img src="images/zoom.jpg" alt="image3" class="about-image mb-2" />
+  </div>
+</div>
 
-   <!-- Footer will be loaded here -->
-  <div id="footer-container"></div>
 
-   <!-- Include navbar and footer JS files -->
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
-</body>
+      <p class="subheader">
+        I use modern technologies like HTML, CSS, and JavaScript to create
+        responsive, mobile-friendly websites that reflect the unique charm of
+        each business I serve.
+      </p>
+
+      <p class="subheader">
+        With a deep respect for community, strong communication, and a creative
+        mindset, I bring every project to life with purpose and personal
+        attention.
+      </p>
+    </section>
+
+    <!-- Parallax Section 2 -->
+    <div class="parallax-container parallax-section-2">
+      <div class="parallax-content">
+        <h2 class="page-header">Curious about the story behind the work?</h2>
+      </div>
+    </div>
+
+    <!-- Content Section 2 -->
+    <section class="content-section transparent-section container text-center">
+      <p class="founder-text">
+        <a href="/author.html" class="privacy-inline-link"
+          >Meet the founder →</a
+        >
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-container">&copy; 2025 Mom & Pop Shop Web Design</div>
+
+    <!-- Navbar & Footer JS -->
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+  </body>
 </html>

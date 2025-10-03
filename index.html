@@ -60,65 +60,99 @@
 
           <!-- Hero Section -->
           <div class="hero">
-            <div class="hero-left">
-              <img src="images/corinne_bw.jpg" alt="photo of Corinne" />
-            </div>
-            <div class="hero-right">
+            <img src="images/corinne_bw.jpg" alt="photo of Corinne" />
+            <div class="hero-overlay">
               <div class="hero-box">
                 <h1>Founder & Software Developer Corinne Padilla</h1>
-                <p class="subheader">
-                  Helping local businesses build simple, beautiful websites that
-                  grow their customer base.
-                </p>
-                <a href="./author.html"><button type="button" class="custom-button">Author Bio</button></a>
+                <div class="text-center my-4">
+                  <a href="services.html" class="custom-button2"
+                    >View My Services</a
+                  >
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Content Below Hero -->
-          <div class="hero-below">
+          <div class="hero-below mt-4">
+            <p class="subheader">
+              Helping local businesses build simple, beautiful websites that
+              grow their customer base.
+            </p>
             <p class="subheader">
               Whether you need a brand new website or a refresh, I specialize in
               creating easy-to-manage, responsive sites using HTML, CSS, and
               JavaScript. I can use backend code for form submission success!
-            </p>
-            <p>
-              <a href="services.html" class="custom-button">
-                View My Services
-              </a>
             </p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Images used to open the lightbox -->
-<div class="row">
-  <div class="column">
-    
-    <div>
-        <a href="sampleWebsites/singlePage.html"><button type="button" class="custom-button"><img src="sampleImages/singlePageImages/singlePage.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow" alt="Single Page Website" />Single Page Website</button></a>
+    <!-- Image Grid / Lightbox -->
+    <div class="row">
+      <div class="column">
+        <div>
+          <a href="sampleWebsites/singlePage.html">
+            <button type="button" class="custom-button">
+              <img
+                src="sampleImages/singlePageImages/singlePage.jpg"
+                onclick="openModal();currentSlide(1)"
+                class="hover-shadow"
+                alt="Single Page Website"
+              />
+              Single Page Website
+            </button>
+          </a>
+        </div>
       </div>
-  </div>
-  <div class="column">
-    
-    <div>
-        <a href="sampleWebsites/multiPage.html"><button type="button" class="custom-button"><img src="images/multiPageImages/multiPageShort.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow" alt="Multi Page Website" />Multi Page Website</button></a>
+      <div class="column">
+        <div>
+          <a href="sampleWebsites/multiPage.html">
+            <button type="button" class="custom-button">
+              <img
+                src="images/multiPageImages/multiPageShort.jpg"
+                onclick="openModal();currentSlide(2)"
+                class="hover-shadow"
+                alt="Multi Page Website"
+              />
+              Multi Page Website
+            </button>
+          </a>
+        </div>
       </div>
-  </div>
-  <div class="column">
-    <img src="images/corinne_bw.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow" alt="Mountains" />
-    <div>
-        <a href="sampleWebsites/websiteRedesign.html"><button type="button" class="custom-button">Website Redesign</button></a>
+      <div class="column">
+        <div>
+          <a href="sampleWebsites/websiteRedesign.html">
+            <button type="button" class="custom-button">
+              <img
+                src="images/corinne_bw.jpg"
+                onclick="openModal();currentSlide(3)"
+                class="hover-shadow"
+                alt="Website Redesign"
+              />
+              Website Redesign
+            </button>
+          </a>
+        </div>
       </div>
-  </div>
-  <div class="column">
-    <img src="images/corinne_bw.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow" alt="Lights" />
-    <div>
-        <a href="author.html"><button type="button" class="custom-button">Author Bio</button></a>
+      <div class="column">
+        <div>
+          <a href="author.html">
+            <button type="button" class="custom-button">
+              <img
+                src="images/Screenshot 2025-10-02 203642.png"
+                onclick="openModal();currentSlide(4)"
+                class="hover-shadow"
+                alt="Coming Soon"
+              />
+              Coming Soon
+            </button>
+          </a>
+        </div>
       </div>
-  </div>
-</div>
+    </div>
+
     <!-- Modal HTML -->
     <div
       class="modal fade"
@@ -155,54 +189,48 @@
       const logoModal = new bootstrap.Modal(
         document.getElementById("logoModal")
       );
+      logo.addEventListener("click", () => logoModal.show());
 
-      logo.addEventListener("click", () => {
-        logoModal.show();
-      });
+      // Open the Modal
+      function openModal() {
+        document.getElementById("myModal").style.display = "block";
+      }
+
+      // Close the Modal
+      function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+      }
+
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+      }
     </script>
-
-    <script>
-// Open the Modal
-function openModal() {
-  document.getElementById("myModal").style.display = "block";
-}
-
-// Close the Modal
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-</script>
 
     <!-- Include navbar and footer JS files -->
     <script src="components/navbar.js"></script>

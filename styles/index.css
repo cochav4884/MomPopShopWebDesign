@@ -1,4 +1,6 @@
+/* ======================== */
 /* Base Layout */
+/* ======================== */
 html,
 body {
   margin: 0;
@@ -15,7 +17,9 @@ body {
   padding-bottom: 4rem;
 }
 
+/* ======================== */
 /* Page Header */
+/* ======================== */
 .page-header {
   font-size: clamp(1.5rem, 5vw, 4rem);
   background-color: #ffffff;
@@ -29,12 +33,20 @@ body {
   width: 100%;
 }
 
+h1 p {
+  color: #400669;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+/* ======================== */
 /* Subheaders & Sections */
+/* ======================== */
 .section,
 .subheader {
   text-align: center;
   margin-bottom: 2rem;
-  color: #282c34;
+  color: #400669;
 }
 
 .subheader {
@@ -42,13 +54,9 @@ body {
   font-weight: 600;
 }
 
-h1 p {
-  color: #400669;
-  font-size: 2rem;
-  font-weight: 400;
-}
-
+/* ======================== */
 /* Images & Logos */
+/* ======================== */
 img,
 .logoImg {
   max-width: 100%;
@@ -67,102 +75,134 @@ img,
   margin-right: 10px;
 }
 
-/* HERO SECTION */
+/* ======================== */
+/* Hero Section */
+/* ======================== */
 .hero {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2rem;
-  margin: 3rem auto;
-  max-width: 1200px;
-  padding: 1rem;
-  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
-.hero-left img {
-  max-width: 400px;
+.hero img,
+.hero-image {
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 2px 2px 4px #000000;
+  max-height: 600px;
+  object-fit: cover;
+  object-position: top-center;
+ 
 }
 
-.hero-right {
-  flex: 1;
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
-}
-
-.subheader {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #400669;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .hero-box {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
-  padding: 1.5rem 2rem;
-  border-radius: 8px;
-  box-shadow: 2px 2px 6px #000000;
-  max-width: 350px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px 40px;
+  border-radius: 10px;
 }
 
 .hero-box h1 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 15px;
 }
 
-.hero-box p {
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
+.hero-box .subheader {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 
-/* Content Below Hero */
-.hero-below {
-  margin: 2rem auto;
-  max-width: 800px;
-  text-align: center;
+/* ======================== */
+/* Grid of Sample Websites */
+/* ======================== */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hero-right {
-    justify-content: center;
-  }
-
-  .hero-box {
-    max-width: 100%;
-  }
-}
-
-/* ===================================== */
-/* END HERO SECTION */
-/* ===================================== */
 
 .row > .column {
-  padding: 0 8px;
+  flex: 1 1 250px;
+  padding: 10px;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.column img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-/* Create four equal columns that floats next to eachother */
-.column {
-  float: left;
-  width: 25%;
+/* ======================== */
+/* Buttons */
+/* ======================== */
+.custom-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  border: none;
+  background: #400669;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 100%;
+  transition: 0.3s;
+  text-align: center;
+  margin-top: 2.5rem;
 }
 
-/* The Modal (background) */
+.custom-button:hover {
+  background-color: #999;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+.custom-button2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  border: none;
+  background: rgba(64, 6, 105, 0.3);
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 100%;
+  transition: 0.3s;
+  text-decoration: none;
+  margin-top: 120px;
+}
+
+.custom-button2:hover {
+  background: #400669;
+  color: white;
+  text-decoration: underline;
+}
+
+/* ======================== */
+/* Modal */
+/* ======================== */
 .modal {
   display: none;
   position: fixed;
@@ -173,10 +213,9 @@ img,
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 
-/* Modal Content */
 .modal-content {
   position: relative;
   background-color: #fefefe;
@@ -184,9 +223,25 @@ img,
   padding: 0;
   width: 90%;
   max-width: 1200px;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-/* The Close Button */
+.modal-title {
+  font-weight: bold;
+  color: #400669;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .close {
   color: white;
   position: absolute;
@@ -203,12 +258,13 @@ img,
   cursor: pointer;
 }
 
-/* Hide the slides by default */
+/* ======================== */
+/* Slideshow / Lightbox */
+/* ======================== */
 .mySlides {
   display: none;
 }
 
-/* Next & previous buttons */
 .prev,
 .next {
   cursor: pointer;
@@ -226,19 +282,16 @@ img,
   user-select: none;
 }
 
-/* Position the "next button" to the right */
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Number text (1/3 etc) */
 .numbertext {
   color: #f2f2f2;
   font-size: 12px;
@@ -247,7 +300,6 @@ img,
   top: 0;
 }
 
-/* Caption text */
 .caption-container {
   text-align: center;
   background-color: black;
@@ -269,10 +321,13 @@ img.hover-shadow {
 }
 
 .hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+              0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* Cards (Service Cards) */
+/* ======================== */
+/* Cards */
+/* ======================== */
 .card {
   background-color: #ffffff;
   border-radius: 8px;
@@ -317,49 +372,9 @@ img.hover-shadow {
   color: inherit;
 }
 
-/* Buttons */
-.custom-button {
-  background-color: #400669;
-  color: #ffffff;
-  border: none;
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 2.5rem;
-  display: inline-block;
-  text-align: center;
-}
-
-.custom-button:hover {
-  background-color: #000000;
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-/* Modal */
-.modal-title {
-  font-weight: bold;
-  color: #400669;
-}
-
-.modal-content {
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
+/* ======================== */
 /* Contact Form */
+/* ======================== */
 form {
   display: flex;
   flex-direction: column;
@@ -418,7 +433,9 @@ textarea {
   font-weight: bold;
 }
 
+/* ======================== */
 /* Privacy Links */
+/* ======================== */
 .privacy-inline-link {
   color: #400669;
   text-decoration: none;
@@ -432,7 +449,9 @@ textarea {
   text-decoration: underline;
 }
 
+/* ======================== */
 /* Status Messages */
+/* ======================== */
 .status-message {
   margin-top: 1rem;
   font-weight: bold;
@@ -447,14 +466,35 @@ textarea {
   color: red;
 }
 
-/* Hover effects */
+/* ======================== */
+/* Hover Effects */
+/* ======================== */
 img:hover,
 .card-hover-effect:hover {
   transform: scale(1.05);
   transition: transform 0.2s ease-in-out;
 }
 
-/* Responsive adjustments */
+/* ======================== */
+/* Responsive Adjustments */
+/* ======================== */
+@media (max-width: 992px) {
+  .hero {
+    max-height: 400px;
+  }
+
+  .hero img,
+  .hero-image {
+    max-height: 400px;
+    object-position: center top;
+  }
+
+  .hero-box {
+    padding: 15px;
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .col-md-6 {
     flex: 0 0 90%;
@@ -468,5 +508,50 @@ img:hover,
   footer p,
   footer a {
     font-size: 0.9rem;
+  }
+
+  .column {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero {
+    max-height: 300px;
+  }
+
+  .hero img,
+  .hero-image {
+    max-height: 300px;
+  }
+
+  .hero-overlay {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .hero-box {
+    max-width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .custom-button2 {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    max-height: 220px;
+  }
+
+  .hero img,
+  .hero-image {
+    max-height: 220px;
+    object-position: center top;
+  }
+
+  .hero-box {
+    padding: 10px;
+    font-size: 0.8rem;
   }
 }
