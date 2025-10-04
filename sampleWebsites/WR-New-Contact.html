@@ -1,49 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mom & Pop Shop Web Design</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Tony's Auto Repair Shop</title>
 
-    <link
-      rel="icon"
-      type="image/png"
-      href="/public/favicon-96x96.png"
-      sizes="96x96"
-    />
-    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
-    <link rel="shortcut icon" href="/public/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/public/apple-touch-icon.png"
-    />
-    <meta name="apple-mobile-web-app-title" content="MomPopShopWebDesign.com" />
-    <link rel="manifest" href="/public/site.webmanifest" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/public/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+  <link rel="shortcut icon" href="/public/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="MomPopShopWebDesign.com" />
+  <link rel="manifest" href="/public/site.webmanifest" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+  <link rel="stylesheet" href="../sampleStyles/websiteRedesign.css">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Responsive Navbar -->
+    <nav class="navbar">
+      <div class="navbarBrand">
+        <a href="#" class="brandLink">Tony's Auto Repair Shop</a>
+      </div>
+      <button
+      type="button"
+        class="menuToggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        onclick="toggleMenu()"
+      >
+        ☰
+      </button>
 
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      defer
-    ></script>
+      <ul class="navLinks" id="primary-navigation">
+        <li><a href="../sampleWebsites/websiteRedesign.html" class="navItem">Home</a></li>
+        <li><a href="../sampleWebsites/WR-New-About.html" class="navItem">About</a></li>
+        <li><a href="../sampleWebsites/WR-New-Gallery.html" class="navItem">Gallery</a></li>
+        <li><a href="../sampleWebsites/WR-New-Service.html" class="navItem">Service</a></li>
+        <li><a href="../sampleWebsites/WR-New-Contact.html" class="navItem">Contact</a></li>
+      </ul>
+    </nav>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../sampleStyles/websiteRedesign.css" />
-  </head>
-  <body>
+    <p>
+      Please Note: The forms presented on this site are for demonstration
+      purposes only, and the contact information shown in the footer is
+      fictitious and intended solely for illustrative use. For accurate and
+      current contact details, please refer to the original website's Landing
+      Page. You may return to that page at any time by clicking the site title
+      in the navigation bar. Once in the official website, you will find a
+      link to the official Contact Me page at: www.mompopshopwebdesign.com.
+    </p>
 
+    <section class="section">
+      <p class="slogan">"We listen. We respond. We care."</p>
+      <h2 class="subheader">Contact Us</h2>
 
+      <form id="contactForm" class="contactForm" novalidate>
+        <label for="name" class="contactForm__label">Name:</label>
+        <input type="text" id="name" name="name" class="contactForm__input" />
+        <div id="nameError" ></div>
 
+        <label for="email" class="contactForm__label">Email:</label>
+        <input type="email" id="email" name="email" class="contactForm__input" />
+        <div id="emailError" ></div>
 
+        <label for="phone" class="contactForm__label">Phone (optional):</label>
+        <input type="tel" id="phone" name="phone" class="contactForm__input" />
 
+        <label for="message" class="contactForm__label">Message:</label>
+        <textarea id="message" name="message" class="contactForm__textarea" rows="5"></textarea>
+        <div id="messageError" ></div>
 
-  <!-- The JS will dynamically create the content -->
-  <script src="../sampleWebsites/WR-New-Contact.html"></script>
+        <button type="submit" class="contactForm__button">Send Message</button>
+
+        <p id="formMessage"></p>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        <img src="../images/logo_small.jpeg" alt="Logo" />
+      </p>
+      <div>
+        &copy; <span id="year"></span> Tony's Auto Repair Shop — All rights reserved.
+      </div>
+
+      <div >
+        <h2>Contact Information</h2>
+        <p><strong>Contact Person:</strong> Tony Auto</p>
+        <p><strong>Contact Number:</strong> (023) 456-7890</p>
+        <p><strong>Business Hours:</strong></p>
+        <ul >
+          <li>Monday - Friday: 8:00am to 5:00pm</li>
+          <li>Saturday: 12:00pm to 4:00pm</li>
+          <li>Closed Sunday and Holidays</li>
+        </ul>
+        <p>
+          <strong>Email Address:</strong>
+          <a href="mailto:TonyAuto@Example.com" >TonyAuto@Example.com</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Navbar toggle
+    function toggleMenu() {
+      const nav = document.getElementById('primary-navigation');
+      nav.classList.toggle('showMenu');
+    }
+
+    // Dynamic year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Form validation and submission
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Clear previous errors and messages
+      formMessage.textContent = "";
+      document.querySelectorAll("#contactForm div").forEach(div => div.textContent = "");
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const message = form.message.value.trim();
+
+      let hasError = false;
+
+      if (!name) {
+        document.getElementById("nameError").textContent = "Name is required.";
+        form.name.classList.add("contactForm__errorInput");
+        hasError = true;
+      } else {
+        form.name.classList.remove("contactForm__errorInput");
+      }
+
+      if (!email) {
+        document.getElementById("emailError").textContent = "Email is required.";
+        form.email.classList.add("contactForm__errorInput");
+        hasError = true;
+      } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        document.getElementById("emailError").textContent = "Invalid email address.";
+        form.email.classList.add("contactForm__errorInput");
+        hasError = true;
+      } else {
+        form.email.classList.remove("contactForm__errorInput");
+      }
+
+      if (!message) {
+        document.getElementById("messageError").textContent = "Message is required.";
+        form.message.classList.add("contactForm__errorInput");
+        hasError = true;
+      } else {
+        form.message.classList.remove("contactForm__errorInput");
+      }
+
+      if (hasError) {
+        formMessage.style.color = "red";
+        formMessage.textContent = "Please fix the errors and try again.";
+        return;
+      }
+
+      // Log submission for demo purposes
+      console.log("Contact form submitted:", {
+        name,
+        email,
+        phone,
+        message
+      });
+
+      alert("Thank you! Your message has been submitted. Check console for details.");
+
+      formMessage.style.color = "green";
+      formMessage.textContent = "Thank you! Your message has been sent.";
+
+      form.reset();
+    });
+  </script>
 </body>
 </html>

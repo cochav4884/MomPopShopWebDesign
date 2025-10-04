@@ -37,13 +37,193 @@
     <link rel="stylesheet" href="../sampleStyles/websiteRedesign.css" />
   </head>
   <body>
+  <div class="container">
 
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbarBrand">
+        <a href="/" class="brandLink">Tony's Auto Repair Shop</a>
+      </div>
+      <button
+        class="menuToggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        onclick="toggleMenu()"
+      >
+        ☰
+      </button>
 
+      <ul class="navLinks" id="primary-navigation">
+        <li><a href="/website-redesign" class="navItem">Home</a></li>
+        <li><a href="/wr-new-about" class="navItem">About</a></li>
+        <li><a href="/wr-new-gallery" class="navItem">Gallery</a></li>
+        <li><a href="/wr-new-service" class="navItem">Service</a></li>
+        <li><a href="/wr-new-contact" class="navItem">Contact</a></li>
+      </ul>
+    </nav>
 
+    <p>
+      Please Note: The forms presented on this site are for demonstration
+      purposes only, and the contact information shown in the footer is
+      fictitious and intended solely for illustrative use. For accurate and
+      current contact details, please refer to the original website's Landing
+      Page. You may return to that page at any time by clicking the site title
+      in the navigation bar. Once in the official website, you will find a
+      link to the official Contact Me page at: www.mompopshopwebdesign.com.
+    </p>
 
+    <p class="slogan">"Where decades of experience meet today’s top-quality service."</p>
 
+    <!-- Service Form -->
+    <section class="section">
+      <h2 class="subheader">Book Your Service Appointment</h2>
+      <form id="serviceForm" class="contactForm" novalidate>
 
-  <!-- The JS will dynamically create the content -->
-  <script src="../sampleWebsites/WR-New-Service.html"></script>
+        <label class="contactForm__label" for="name">Name:</label>
+        <input type="text" id="name" name="name" class="contactForm__input" />
+
+        <div class="error-message" id="error-name"></div>
+
+        <label class="contactForm__label" for="email">Email:</label>
+        <input type="email" id="email" name="email" class="contactForm__input" />
+
+        <div class="error-message" id="error-email"></div>
+
+        <label class="contactForm__label" for="date">Select Date:</label>
+        <input type="date" id="date" name="date" class="contactForm__input" />
+
+        <div class="error-message" id="error-date"></div>
+
+        <label class="contactForm__label" for="serviceType">Type of Service:</label>
+        <select id="serviceType" name="serviceType" class="contactForm__input">
+          <option value="">-- Select Service --</option>
+          <option value="Car Engine & Transmission Repair">Car Engine Repair</option>
+          <option value="Brake Replacement">Brake Replacement</option>
+          <option value="Oil Change">Oil Change</option>
+          <option value="Tire Service">Tire Service</option>
+          <option value="Paint & Body Repair">Body Repair</option>
+          <option value="Electrical Work">Electrical Work</option>
+        </select>
+
+        <div class="error-message" id="error-serviceType"></div>
+
+        <fieldset class="paymentOptions">
+          <legend class="contactForm__label">Payment Options (Optional):</legend>
+
+          <label class="radio-label">
+            <input type="radio" name="paymentPlan" value="" checked />
+            No payment plan selected (optional)
+          </label>
+
+          <label class="radio-label">
+            <input type="radio" name="paymentPlan" value="Payment plan under $250" />
+            Payment plan under $250
+          </label>
+
+          <label class="radio-label">
+            <input type="radio" name="paymentPlan" value="Income-based payment plan $250 - $500" />
+            Income-based payment plan $250 - $500
+          </label>
+
+          <label class="radio-label">
+            <input type="radio" name="paymentPlan" value="Personal car repair loan above $500" />
+            Personal car repair loan above $500
+          </label>
+        </fieldset>
+
+        <button type="submit" class="contactForm__button">Book Appointment</button>
+
+        <p id="form-message" class="form-status"></p>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="#" id="back-to-top"><img src="../images/logo_small.jpeg" alt="Logo" /></a>
+      <div>
+        &copy; <span id="year"></span> Tony's Auto Repair Shop — All rights reserved.
+      </div>
+
+      <div class="footer-contact">
+        <h2>Contact Information</h2>
+        <p><strong>Contact Person:</strong> Tony Auto</p>
+        <p><strong>Contact Number:</strong> (023) 456-7890</p>
+        <p><strong>Business Hours:</strong></p>
+        <ul class="footer-hours">
+          <li>Monday - Friday: 8:00am to 5:00pm</li>
+          <li>Saturday: 12:00pm to 4:00pm</li>
+          <li>Closed Sunday and Holidays</li>
+        </ul>
+        <p><strong>Email Address:</strong> <a href="mailto:TonyAuto@Example.com">TonyAuto@Example.com</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Navbar toggle
+    function toggleMenu() {
+      const nav = document.getElementById('primary-navigation');
+      nav.classList.toggle('showMenu');
+    }
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Form validation and handling
+    const form = document.getElementById('serviceForm');
+    const formMessage = document.getElementById('form-message');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const date = form.date.value;
+      const serviceType = form.serviceType.value;
+      const paymentPlan = form.paymentPlan.value;
+
+      let isValid = true;
+
+      // Clear errors
+      document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+      formMessage.textContent = '';
+      formMessage.classList.remove('error', 'success');
+
+      // Validate fields
+      if (!name) {
+        document.getElementById('error-name').textContent = 'Name is required.';
+        isValid = false;
+      }
+
+      if (!email) {
+        document.getElementById('error-email').textContent = 'Email is required.';
+        isValid = false;
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
+        document.getElementById('error-email').textContent = 'Invalid email address.';
+        isValid = false;
+      }
+
+      if (!date) {
+        document.getElementById('error-date').textContent = 'Please select a date.';
+        isValid = false;
+      }
+
+      if (!serviceType) {
+        document.getElementById('error-serviceType').textContent = 'Please select a service type.';
+        isValid = false;
+      }
+
+      if (isValid) {
+        console.log('Booking submitted:', { name, email, date, serviceType, paymentPlan });
+        formMessage.textContent = 'Thank you! Your appointment has been booked.';
+        formMessage.classList.add('success');
+        form.reset();
+      } else {
+        formMessage.textContent = 'Please fix the errors above and try again.';
+        formMessage.classList.add('error');
+      }
+    });
+  </script>
+</body>
 </body>
 </html>

@@ -37,13 +37,188 @@
     <link rel="stylesheet" href="../sampleStyles/websiteRedesign.css" />
   </head>
   <body>
+    <div class="container">
+      <!-- Responsive Navbar -->
+      <nav class="navbar">
+        <div class="navbarBrand">
+          <a href="/" class="brandLink">Tony's Auto Repair Shop</a>
+        </div>
+        <button
+          type="button"
+          class="menuToggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          onclick="toggleMenu()"
+        >
+          ☰
+        </button>
 
+        <ul class="navLinks" id="primary-navigation">
+          <li class="navItem">
+            <a href="../sampleWebsites/websiteRedesign.html">Home</a>
+          </li>
+          <li class="navItem">
+            <a href="../sampleWebsites/WR-New-About.html">About</a>
+          </li>
+          <li class="navItem">
+            <a href="../sampleWebsites/WR-New-Gallery.html">Gallery</a>
+          </li>
+          <li class="navItem">
+            <a href="../sampleWebsites/WR-New-Service.html">Service</a>
+          </li>
+          <li class="navItem">
+            <a href="../sampleWebsites/WR-New-Contact.html">Contact</a>
+          </li>
+        </ul>
+      </nav>
 
+      <p>
+        Please Note: The forms presented on this site are for demonstration
+        purposes only, and the contact information shown in the footer is
+        fictitious and intended solely for illustrative use. For accurate and
+        current contact details, please refer to the original website's Landing
+        Page. You may return to that page at any time by clicking the site title
+        in the navigation bar. Once in the official website, you will find a
+        link to the official Contact Me page at: www.mompopshopwebdesign.com.
+      </p>
 
+      <p class="slogan">"The Skilled Team Behind Every Smooth Ride”</p>
 
+      <!-- Meet Our Team -->
+      <section class="section">
+        <h2 class="subheader">Meet Our Team</h2>
+        <div class="flipCardContainer">
+          <!-- Flip Card 1 -->
+          <div class="flipCard">
+            <div class="flipCardInner">
+              <div class="flipCardFront">
+                <img src="../sampleImages/websiteRedesignImages/new-worker6.jpg" alt="Jesse W." />
+              </div>
+              <div class="flipCardBack">
+                <h3>Jesse W.</h3>
+                <h4>Transmission Specialist</h4>
+                <p>
+                  Expert in manual and automatic transmission systems with 15+
+                  years of experience.
+                </p>
+              </div>
+            </div>
+          </div>
 
+          <!-- Flip Card 2 -->
+          <div class="flipCard">
+            <div class="flipCardInner">
+              <div class="flipCardFront">
+                <img src="../sampleImages/websiteRedesignImages/new-worker16.jpg" alt="Alex R." />
+              </div>
+              <div class="flipCardBack">
+                <h3>Alex R.</h3>
+                <h4>Lead Mechanic</h4>
+                <p>
+                  Diagnoses and resolves complex automotive issues. Known for
+                  precision and efficiency.
+                </p>
+              </div>
+            </div>
+          </div>
 
-  <!-- The JS will dynamically create the content -->
-  <script src="../sampleWebsites/MPW-Gallery-Page.html"></script>
-</body>
+          <!-- Flip Card 3 -->
+          <div class="flipCard">
+            <div class="flipCardInner">
+              <div class="flipCardFront">
+                <img src="../sampleImages/websiteRedesignImages/old-worker.jpg" alt="Maria S." />
+              </div>
+              <div class="flipCardBack">
+                <h3>Maria S.</h3>
+                <h4>Body & Paint Technician</h4>
+                <p>
+                  Skilled in restoring vehicles to like-new condition.
+                  Specialist in color matching.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p class="slogan">“Serving Trust, One Car at a Time!”</p>
+
+      <!-- Gallery Images -->
+      <section class="section">
+        <h2 class="subheader">Work in Progress</h2>
+        <div class="screenshotContainer">
+          <figure class="imageWrapper">
+            <img
+              src="../sampleImages/websiteRedesignImages/new-worker6.jpg"
+              alt="Car Transmission Repair"
+            />
+            <figcaption class="caption">Car Transmission Repair</figcaption>
+          </figure>
+
+          <figure class="imageWrapper">
+            <img src="../sampleImages/websiteRedesignImages/auto-brake.jpg" alt="Brake Replacement" />
+            <figcaption class="caption">Brake Replacement</figcaption>
+          </figure>
+
+          <figure class="imageWrapper">
+            <img src="../sampleImages/websiteRedesignImages/auto-oil.jpg" alt="Oil Change" />
+            <figcaption class="caption">Oil Change</figcaption>
+          </figure>
+
+          <figure class="imageWrapper">
+            <img src="../sampleImages/websiteRedesignImages/old-worker.jpg" alt="Tire Service" />
+            <figcaption class="caption">Tire Service</figcaption>
+          </figure>
+
+          <figure class="imageWrapper">
+            <img src="../sampleImages/websiteRedesignImages/auto-paint.jpg" alt="Paint & Body Work" />
+            <figcaption class="caption">Paint & Body Work</figcaption>
+          </figure>
+
+          <figure class="imageWrapper">
+            <img src="../sampleImages/websiteRedesignImages/new-worker16.jpg" alt="Diagnostics" />
+            <figcaption class="caption">Diagnostics</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <a href="#" class="backToTop">
+          <img src="../images/logo_small.jpeg" alt="Logo" />
+        </a>
+        <div>
+          &copy; <span id="year"></span> Tony's Auto Repair Shop — All rights
+          reserved.
+        </div>
+
+        <div>
+          <h2>Contact Information</h2>
+          <p><strong>Contact Person:</strong> Tony Auto</p>
+          <p><strong>Contact Number:</strong> (023) 456-7890</p>
+          <p><strong>Business Hours:</strong></p>
+          <ul>
+            <li>Monday - Friday: 8:00am to 5:00pm</li>
+            <li>Saturday: 12:00pm to 4:00pm</li>
+            <li>Closed Sunday and Holidays</li>
+          </ul>
+          <p>
+            <strong>Email Address:</strong>
+            <a href="mailto:TonyAuto@Example.com">TonyAuto@Example.com</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Navbar toggle
+      function toggleMenu() {
+        const nav = document.getElementById("primary-navigation");
+        nav.classList.toggle("showMenu");
+      }
+
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>

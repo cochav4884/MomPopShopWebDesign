@@ -37,13 +37,105 @@
     <link rel="stylesheet" href="../sampleStyles/Old-Site-Gallery.css" />
   </head>
   <body>
+  <div class="container my-5">
 
+    <!-- Header -->
+    <header class="text-center mb-5">
+      <h1>Tony's Auto Repair Shop</h1>
+    </header>
 
+    <!-- Navigation -->
+    <nav class="text-center mb-5">
+      <a href="../sampleWebsites/websiteRedesign.html">WR Old Website Design</a>
+      <a href="../sampleWebsites/Old-Site-About.html">Old About Page</a>
+      <a href="../sampleWebsites/Old-Site-Gallery.html">Old Gallery Page</a>
+      <a href="../sampleWebsites/Old-Site-Contact.html">Old Contact Page</a>
+    </nav>
 
+    <!-- Team Section -->
+    <section class="mb-5">
+      <h2 class="text-center">Meet Our Team</h2>
+      <p class="text-center slogan">“Serving Trust, One Car at a Time — Since '78!”</p>
+      <div class="row justify-content-center g-4">
 
+        <!-- Tony -->
+        <div class="col-md-4 flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../sampleImages/websiteRedesignImages/old-worker4.jpg" alt="Tony Auto" class="flipCardImage" />
+              <h3>Tony Auto</h3>
+              <p>Senior Mechanic</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Tony has over 20 years experience specializing in engine repair and diagnostics.</p>
+            </div>
+          </div>
+        </div>
 
+        <!-- Mary -->
+        <div class="col-md-4 flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../sampleImages/websiteRedesignImages/auto-contract3.jpg" alt="Mary Smith" class="flipCardImage" />
+              <h3>Mary Smith</h3>
+              <p>Service Advisor</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Mary coordinates customer service and scheduling with a friendly approach.</p>
+            </div>
+          </div>
+        </div>
 
-  <!-- The JS will dynamically create the content -->
-  <script src="../sampleWebsitesJS/Old-Site-Gallery.js"></script>
+        <!-- David -->
+        <div class="col-md-4 flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../sampleImages/websiteRedesignImages/auto-discuss.jpg" alt="David Lee" class="flipCardImage" />
+              <h3>David Lee</h3>
+              <p>Brake Specialist</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Expert in brake repair and safety inspections with over 10 years experience.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Work Gallery Section -->
+    <section class="mb-5">
+      <h2>Work in Progress</h2>
+      <div class="row g-4">
+
+        <div class="col-md-3 workItem">
+          <img src="../sampleImages/websiteRedesignImages/new-worker6.jpg" alt="Car Engine Repair" />
+          <div class="caption">Car Engine Repair</div>
+        </div>
+
+        <div class="col-md-3 workItem">
+          <img src="../sampleImages/websiteRedesignImages/auto-discuss2.jpg" alt="Brake Replacement" />
+          <div class="caption">Brake Replacement</div>
+        </div>
+
+        <div class="col-md-3 workItem">
+          <img src="../sampleImages/websiteRedesignImages/new-worker2.jpg" alt="Oil Change" />
+          <div class="caption">Oil Change</div>
+        </div>
+
+        <div class="col-md-3 workItem">
+          <img src="../sampleImages/websiteRedesignImages/old-worker.jpg" alt="Tire Service" />
+          <div class="caption">Tire Service</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer (you mentioned this is injected via footer.js, but we can include it directly here) -->
+    <footer class="text-center mt-5">
+      &copy; 1978 Tony's Auto Repair Shop — All rights reserved.
+    </footer>
+
+  </div>
 </body>
 </html>
