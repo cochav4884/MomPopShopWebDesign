@@ -1,0 +1,108 @@
+/* comingSoon.css
+   Replace the URL in --bg-image with your own image path or URL.
+*/
+
+:root{
+  --bg-image: url("https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=2000&q=80");
+  --overlay-color: rgba(0,0,0,0.55);
+  --accent: #ffd166;
+  --text: #ffffff;
+  --max-width: 1100px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Full-bleed background container */
+.bg {
+  min-height: 100vh;
+  width: 100%;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  place-items: center;
+}
+
+/* Semi-transparent overlay to improve contrast */
+.overlay {
+  inset: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(var(--overlay-color), rgba(0,0,0,0.35));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+/* Centered card/content */
+.content{
+  text-align: center;
+  max-width: var(--max-width);
+  width: 100%;
+  padding: 3.25rem;
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(4px) saturate(115%);
+  backdrop-filter: blur(4px) saturate(115%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+}
+
+/* Headline styling */
+.headline{
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+  text-transform: none;
+  line-height: 1.02;
+  transform-origin: center;
+  animation: popIn 800ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* Accent underline using pseudo-element */
+.headline::after{
+  content: "";
+  display: block;
+  margin: 18px auto 0;
+  width: 72px;
+  height: 6px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--accent), rgba(255,255,255,0.12));
+}
+
+/* Subtext */
+.sub{
+  margin-top: 1rem;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  opacity: 0.95;
+  color: rgba(255,255,255,0.95);
+}
+
+/* Small responsive tweaks */
+@media (max-width:600px){
+  .content{
+    padding: 2rem;
+    border-radius: 12px;
+  }
+  .headline::after{
+    width: 48px;
+    height: 5px;
+  }
+}
+
+/* subtle entrance animation */
+@keyframes popIn{
+  0%   { transform: translateY(8px) scale(.98); opacity: 0; }
+  60%  { transform: translateY(-4px) scale(1.02); opacity: 1; }
+  100% { transform: translateY(0) scale(1); }
+}
