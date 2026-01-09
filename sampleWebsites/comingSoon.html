@@ -12,14 +12,14 @@
       sizes="96x96"
     />
     <link rel="icon" type="image/svg+xml" href="../public/favicon.svg" />
-    <link rel="shortcut icon" href="../public/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="../public/apple-touch-icon.png"
     />
     <meta name="apple-mobile-web-app-title" content="MomPopShopWebDesign.com" />
-    <link rel="manifest" href="../public/site.webmanifest" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Bootstrap CSS -->
     <link
@@ -42,13 +42,19 @@
     <!-- Navbar will be loaded here -->
     <div id="navbar-container"></div>
 
-    <div class="bg" role="img" aria-label="Decorative background image">
+    <!-- Main Content -->
+    <div class="bg">
       <div class="overlay">
-        <div class="content" aria-hidden="false">
+        <div class="content" role="region" aria-label="Coming Soon content">
           <h1 class="headline">Coming Soon!</h1>
           <p class="sub">
             We're putting the finishing touches on something great. Stay tuned.
           </p>
+
+           <!-- Optional safe button linking to your main live site -->
+          <a href="../index.html" class="btn btn-outline-warning mt-3">
+            Back to Main Site
+          </a>
         </div>
       </div>
     </div>
